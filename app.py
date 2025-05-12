@@ -22,7 +22,7 @@ def split_pdf():
         return "No file received", 400
 
 
-    file = request.files['file']
+    file = request.files['data']
     print(f"✅ Received file: {file.filename}")
     
     reader = PdfReader(file)
