@@ -17,9 +17,10 @@ def log_request_info():
 
 @app.route("/split", methods=["POST"])
 def split_pdf():
-    if 'file' not in request.files:
-        print("❌ No file received")
+    if 'file' not in request.files or request.files['file'].filename == '':
+        print("❌ No file received. Available fields:", request.files)
         return "No file received", 400
+
 
     file = request.files['file']
     print(f"✅ Received file: {file.filename}")
